@@ -17,7 +17,7 @@ const {
 
 const CompanyType = new GraphQLObjectType({
     name: 'Company',
-    fields: {
+    fields: () => ({
         id: { type: GraphQLString },
         name: { type: GraphQLString },
         description: { type: GraphQLString },
@@ -28,12 +28,12 @@ const CompanyType = new GraphQLObjectType({
                   .then( res => res.data);
             }
         }
-    }
+    })
 })
 
 const UserType = new GraphQLObjectType({
     name: 'User',
-    fields: {
+    fields: () => ({
         id: { type: GraphQLString },
         firstName: { type: GraphQLString },
         age: { type: GraphQLInt },
@@ -44,7 +44,7 @@ const UserType = new GraphQLObjectType({
                   .then( res => res.data );
             }
         }
-    }
+    })
 });
 
 // the purpose of root is specifying the root of a specific node in the data
